@@ -1,0 +1,1 @@
+Buat Fungsi Khusus Di Sini
