@@ -2,10 +2,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:fugi_movie_app_team5/Model/result/result.dart';
-import 'package:riverpod/riverpod.dart';
 
-class TrendingThisWeek {
-  // Api from the movie trending all week
+class TrendingThisWeekService {
+  // Url from the movie trending all week
   final url =
       'https://api.themoviedb.org/3/trending/all/week?api_key=5901633f2d04a1752502efc738f5616e';
   Future<List<Result>> getTrending() async {
@@ -16,5 +15,3 @@ class TrendingThisWeek {
     return result.map(((e) => Result.fromJson(e))).toList();
   }
 }
-
-final trendingAllWeek = Provider<TrendingThisWeek>((ref) => TrendingThisWeek());

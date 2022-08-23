@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:fugi_movie_app_team5/Model/result/result.dart';
 
-class TrendingAllDay {
-  // Api from the movie trending all day
+class TrendingAllDayService {
+  // Url from the movie trending all day
   final url =
       'https://api.themoviedb.org/3/trending/all/day?api_key=5901633f2d04a1752502efc738f5616e';
   Future<List<Result>> getTrending() async {
