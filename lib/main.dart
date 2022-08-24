@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fugi movie team 5',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(),
     );
   }
