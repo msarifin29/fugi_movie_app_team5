@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fugi movie team 5',
+      title: 'Fugi movie team 5!',
       theme: ThemeData(),
     );
   }
