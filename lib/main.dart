@@ -12,12 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
-      title: 'Fugi movie team 5',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
-    );
-=======
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(),
         title: 'Fugi movie team 5',
         darkTheme: ThemeData(
           backgroundColor: const Color(0xff15141f),
@@ -48,6 +44,5 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: const TrendingMovieScreen());
->>>>>>> 36bbd46af0ac8d906b780c62e5135603324e172b
   }
 }
