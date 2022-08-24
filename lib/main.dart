@@ -43,6 +43,6 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        home: const TrendingMovieScreen());
+        home: TrendingMovieScreen());
   }
 }
