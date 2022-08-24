@@ -1,7 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fugi_movie_app_team5">
-    <!-- Required to fetch data from the internet. -->
-    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="fugi_movie_app_team5"
         android:name="${applicationName}"
