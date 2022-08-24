@@ -41,9 +41,7 @@ class BuildTrendingAllDay extends ConsumerWidget {
                 height: 290,
                 width: double.infinity,
                 child: ListView.builder(
-                  physics: const AlwaysScrollableScrollPhysics(
-                      parent: BouncingScrollPhysics()),
-                  // padding: const EdgeInsets.only(top: 5),
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: data.length,
                   itemBuilder: (context, index) {
@@ -53,27 +51,21 @@ class BuildTrendingAllDay extends ConsumerWidget {
                     var firstDate = data[index].firstAirDate;
                     // Original Title
                     var title = data[index].originalTitle;
-                    print(data[index].genreIds);
                     return Column(
                       children: [
                         Stack(
                           children: [
-                            InkWell(
+                            GestureDetector(
                               onTap: () {},
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
+                              child: Container(
                                 margin: const EdgeInsets.all(10),
-                                child: SizedBox(
-                                  height: 220,
-                                  width: 150,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.network(
-                                      'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
-                                      fit: BoxFit.cover,
-                                    ),
+                                height: 220,
+                                width: 150,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.network(
+                                    'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -135,8 +127,14 @@ class BuildTrendingAllDay extends ConsumerWidget {
           ),
         );
       },
-      error: (err, s) => Text(err.toString()),
-      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (err, s) => Scaffold(
+        body: Text(
+          err.toString(),
+        ),
+      ),
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }

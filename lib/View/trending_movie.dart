@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../Widget/build_trending_all_day.dart';
@@ -20,6 +22,7 @@ class TrendingMovieScreen extends ConsumerWidget {
       ),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
             BuildTrendingAllDay(),
             BuildTrendingThisWeek(),

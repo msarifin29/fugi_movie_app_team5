@@ -40,8 +40,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                 height: 290,
                 width: double.infinity,
                 child: ListView.builder(
-                  physics: const AlwaysScrollableScrollPhysics(
-                      parent: BouncingScrollPhysics()),
+                  physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsets.only(top: 5),
                   scrollDirection: Axis.horizontal,
                   itemCount: data.length,
@@ -56,22 +55,17 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                       children: [
                         Stack(
                           children: [
-                            InkWell(
+                            GestureDetector(
                               onTap: () {},
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
+                              child: Container(
                                 margin: const EdgeInsets.all(10),
-                                child: SizedBox(
-                                  height: 220,
-                                  width: 150,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.network(
-                                      'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
-                                      fit: BoxFit.cover,
-                                    ),
+                                height: 220,
+                                width: 150,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.network(
+                                    'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -136,8 +130,14 @@ class BuildTrendingThisWeek extends ConsumerWidget {
           ),
         );
       },
-      error: (err, s) => Text(err.toString()),
-      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (err, s) => Scaffold(
+        body: Text(
+          err.toString(),
+        ),
+      ),
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }
