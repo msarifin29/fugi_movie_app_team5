@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
+        //theme: ThemeData(),
         title: 'Fugi movie team 5',
-        darkTheme: ThemeData(
-          backgroundColor: const Color(0xff15141f),
+        theme: ThemeData(
+          backgroundColor: Color.fromARGB(21, 20, 31, 100),
           textTheme: const TextTheme(
             headlineMedium: TextStyle(
               color: Color(0xffff8f71),
