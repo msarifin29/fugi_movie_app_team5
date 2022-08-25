@@ -22,7 +22,7 @@ class BuildTrendingAllDay extends ConsumerWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 10,
+                  top: 5,
                   left: 10,
                 ),
                 child: RichText(
