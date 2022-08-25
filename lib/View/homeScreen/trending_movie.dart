@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../Widget/build_trending_all_day.dart';
-import '../Widget/build_trending_this_week.dart';
+import '../../Widget/build_trending_all_day.dart';
+import '../../Widget/build_trending_this_week.dart';
 
 //Extend ConsumerWidget instead of StatelessWidget, which is exposed by Riverpod
 class TrendingMovieScreen extends ConsumerWidget {
