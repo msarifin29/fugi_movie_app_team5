@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          backgroundColor: Color.fromARGB(21, 20, 31, 100),
+          backgroundColor: const Color.fromARGB(21, 20, 31, 100),
           textTheme: const TextTheme(
             headlineMedium: TextStyle(
               color: Color(0xffff8f71),
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         ),
         title: 'Fugi movie team 5',
         darkTheme: ThemeData(
-          backgroundColor: Color.fromARGB(21, 20, 31, 100),
+          backgroundColor: const Color.fromARGB(21, 20, 31, 100),
           textTheme: const TextTheme(
             headlineMedium: TextStyle(
               color: Color(0xffff8f71),
