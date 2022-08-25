@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fugi_movie_app_team5/View/discover.dart';
 import 'package:fugi_movie_app_team5/View/trending_movie.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Fugi movie team 5',
-        darkTheme: ThemeData(
+        theme: ThemeData(
           backgroundColor: const Color(0xff15141f),
           textTheme: const TextTheme(
             headlineMedium: TextStyle(
@@ -41,6 +42,6 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        home: const TrendingMovieScreen());
+        home: DiscoverScreen());
   }
 }
