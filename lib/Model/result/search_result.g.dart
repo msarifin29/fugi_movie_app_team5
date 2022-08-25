@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'result.dart';
+part of 'search_result.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$_SearchResult _$$_SearchResultFromJson(Map<String, dynamic> json) =>
+    _$_SearchResult(
       adult: json['adult'] as bool,
       id: json['id'] as int,
       backdropPath: json['backdrop_path'] as String?,
@@ -16,21 +17,16 @@ _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String,
       posterPath: json['poster_path'] as String?,
-      releaseDate: json['release_date'] == null
-          ? null
-          : DateTime.parse(json['release_date'] as String),
-      firstAirDate: json['first_air_date'] == null
-          ? null
-          : DateTime.parse(json['first_air_date'] as String),
+      releaseDate: json['release_date'] as String?,
       title: json['title'] as String?,
       video: json['video'] as bool?,
       voteCount: json['vote_count'] as int?,
       voteAverage: json['vote_average'] as num?,
       popularity: json['popularity'] as num,
-      name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$_SearchResultToJson(_$_SearchResult instance) =>
+    <String, dynamic>{
       'adult': instance.adult,
       'id': instance.id,
       'backdrop_path': instance.backdropPath,
@@ -39,12 +35,10 @@ Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
       'original_title': instance.originalTitle,
       'overview': instance.overview,
       'poster_path': instance.posterPath,
-      'release_date': instance.releaseDate?.toIso8601String(),
-      'first_air_date': instance.firstAirDate?.toIso8601String(),
+      'release_date': instance.releaseDate,
       'title': instance.title,
       'video': instance.video,
       'vote_count': instance.voteCount,
       'vote_average': instance.voteAverage,
       'popularity': instance.popularity,
-      'name': instance.name,
     };
