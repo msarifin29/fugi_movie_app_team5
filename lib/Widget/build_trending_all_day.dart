@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fugi_movie_app_team5/View/detail_screen.dart';
 
 import '../Controller/riverpod/trending_all_day_riverpod.dart';
 import '../Model/result/result.dart';
@@ -38,17 +39,13 @@ class BuildTrendingAllDay extends ConsumerWidget {
                 ),
               ),
               SizedBox(
-                height: 290,
+                height: MediaQuery.of(context).size.height * 0.37,
                 width: double.infinity,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: data.length,
                   itemBuilder: (context, index) {
-                    // Release Date
-                    var date = data[index].releaseDate;
-                    // First Air Date
-                    var firstDate = data[index].firstAirDate;
                     // Original Title
                     var title = data[index].originalTitle;
                     return Column(
@@ -56,7 +53,23 @@ class BuildTrendingAllDay extends ConsumerWidget {
                         Stack(
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                      banner:
+                                          data[index].backdropPath.toString(),
+                                      originalTitle: data[index].originalTitle,
+                                      nameMovie: data[index].name,
+                                      releaseDate: data[index].releaseDate,
+                                      firstRelease: data[index].firstAirDate,
+                                      voteAverage: data[index].voteAverage!,
+                                      overview: data[index].overview,
+                                    ),
+                                  ),
+                                );
+                              },
                               child: Container(
                                 margin: const EdgeInsets.all(10),
                                 height: 220,

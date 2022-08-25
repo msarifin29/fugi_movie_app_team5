@@ -25,6 +25,13 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Lato-Regular',
               letterSpacing: 2,
             ),
+            headlineSmall: TextStyle(
+              color: Color(0xffffffff),
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Lato-Regular',
+              letterSpacing: 2,
+            ),
             titleLarge: TextStyle(
                 color: Color(0xffffffff),
                 fontFamily: 'Lato-Regular',
@@ -43,6 +50,6 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        home: TrendingMovieScreen());
+        home: const TrendingMovieScreen());
   }
 }

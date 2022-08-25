@@ -1,77 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fugi_movie_app_team5/Widget/list_movie.dart';
+import 'package:intl/intl.dart';
 
-class detail_screen extends StatefulWidget {
-  const detail_screen({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class DetailScreen extends ConsumerWidget {
+  DetailScreen(
+      {Key? key,
+      required this.banner,
+      this.originalTitle,
+      this.nameMovie,
+      this.releaseDate,
+      this.firstRelease,
+      required this.voteAverage,
+      required this.overview})
+      : super(key: key);
+
+  final String banner;
+  String? originalTitle;
+  String? nameMovie;
+  DateTime? releaseDate;
+  DateTime? firstRelease;
+  final num voteAverage;
+  final String overview;
 
   @override
-  State<detail_screen> createState() => _detail_screenState();
-}
-
-class _detail_screenState extends State<detail_screen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(21, 20, 31, 100),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 287,
-              decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                image: new DecorationImage(
-                    image: new AssetImage('assets/image/The Last Jedi.jpg'),
-                    fit: BoxFit.cover),
-              ),
-              child: Center(
-                child: Container(
-                  width: 65,
-                  height: 65,
-                  decoration: BoxDecoration(
-                    image: new DecorationImage(
-                        image: new AssetImage(
-                            'assets/icon/icon_play_outlined.png'),
-                        fit: BoxFit.cover),
-                  ),
-                ),
+              height: 250,
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w500$banner',
+                fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: Column(
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width - 24,
-                    height: 50,
-                    child: Column(children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Star Wars: The Last Jedi',
-                            style: TextStyle(color: Colors.white, fontSize: 24),
-                          ),
-                          Padding(padding: EdgeInsets.only(left: 30)),
-                          Container(
-                            width: 29,
-                            height: 22,
-                            child: Center(
-                              child: Text(
-                                '47K',
-                                style: TextStyle(
-                                    color: Color.fromARGB(225, 240, 237, 237)),
-                              ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              originalTitle = originalTitle == null
+                                  ? nameMovie!
+                                  : originalTitle.toString(),
+                              style: Theme.of(context).textTheme.headlineSmall,
                             ),
-                            decoration: BoxDecoration(
+                            const SizedBox(
+                              width: 30,
+                            ),
+                            Container(
+                              width: 29,
+                              height: 22,
+                              decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     color: Colors.white,
-                                    offset: const Offset(
+                                    offset: Offset(
                                       0.7,
                                       0.7,
                                     ), //Offset
@@ -80,47 +76,51 @@ class _detail_screenState extends State<detail_screen> {
                                   ), //BoxShadow
                                   BoxShadow(
                                     color: Colors.black,
-                                    offset: const Offset(1, 1),
+                                    offset: Offset(1, 1),
                                     blurRadius: 0.0,
                                     spreadRadius: 0.2,
                                   ),
-                                ]),
-                          )
-                        ],
-                      ),
-                      Padding(padding: EdgeInsets.only(top: 5)),
-                      Row(
-                        children: [
-                          new Container(
-                            width: 181,
-                            height: 15,
-                            child: Row(
-                              children: [
-                                Image(
-                                    image: AssetImage(
-                                        'assets/icon/icon_time.png')),
-                                Text(
-                                  '152 minutes',
+                                ],
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  '47K',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 185, 184, 184),
-                                      fontSize: 13),
+                                    color: Color.fromARGB(225, 240, 237, 237),
+                                  ),
                                 ),
-                                Padding(padding: EdgeInsets.only(left: 10)),
-                                Image(
-                                    image: AssetImage(
-                                        'assets/icon/icon_star_outlined.png')),
-                                Text(
-                                  '7.0 (IMDb)',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 185, 184, 184),
-                                      fontSize: 13),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ]),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30,
+                          child: Row(
+                            children: [
+                              // Image(
+                              //     image: AssetImage(
+                              //         'assets/icon/icon_time.png')),
+                              // Text(
+                              //   '152 minutes',
+                              //   style: TextStyle(
+                              //       color: Color.fromARGB(255, 185, 184, 184),
+                              //       fontSize: 15),
+                              // ),
+                              // Padding(padding: EdgeInsets.only(left: 10)),
+                              Image.asset(
+                                'assets/icon/icon_star_outlined.png',
+                                color: const Color(0xffff8f71),
+                              ),
+                              Text(
+                                '${voteAverage.toStringAsFixed(1)}  (IMDb)',
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Divider(
                     color: Colors.grey, //color of divider
@@ -136,7 +136,7 @@ class _detail_screenState extends State<detail_screen> {
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
                               'Release date',
                               style:
@@ -144,7 +144,8 @@ class _detail_screenState extends State<detail_screen> {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              'December 9,2017',
+                              DateFormat.yMMMd().format(
+                                  releaseDate = releaseDate ?? firstRelease!),
                               style: TextStyle(
                                   color: Color.fromARGB(255, 185, 184, 184),
                                   fontSize: 13),
@@ -254,9 +255,8 @@ class _detail_screenState extends State<detail_screen> {
                       Padding(padding: EdgeInsets.only(top: 10)),
                       Container(
                         width: MediaQuery.of(context).size.width - 24,
-                        height: 65,
                         child: Text(
-                          'Reh (Deisy Ridley) finally manages to find the legendary jedi knight,Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including leia.Finnb Read more.',
+                          overview,
                           style: TextStyle(
                             fontSize: 13,
                             color: Color.fromARGB(255, 185, 184, 184),
