@@ -12,7 +12,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dataThisWeek = ref.watch(trendingThisWeekController);
+    final dataThisWeek = ref.watch(trendingThisWeekFuture);
     return dataThisWeek.when(
       data: (dataThisWeek) {
         List<Result> data = dataThisWeek.map((e) => e).toList();
@@ -38,7 +38,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.37,
+                height: MediaQuery.of(context).size.height * 0.35,
                 width: double.infinity,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -134,11 +134,6 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                   },
                 ),
               ),
-              // Text(
-              //   DateFormat.yMMMd()
-              //       .format(date = date ?? firstDate!),
-              //   style: const TextStyle(color: Colors.red),
-              // ),
             ],
           ),
         );
@@ -148,9 +143,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
           err.toString(),
         ),
       ),
-      loading: () => const Center(
-        child: CircularProgressIndicator(),
-      ),
+      loading: () => const Center(child: CircularProgressIndicator()),
     );
   }
 }

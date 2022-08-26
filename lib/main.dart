@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fugi_movie_app_team5/View/discover.dart';
 import 'package:fugi_movie_app_team5/View/homeScreen/trending_movie.dart';
 
 void main() {
