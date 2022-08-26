@@ -58,14 +58,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => DetailScreen(
-                                      banner:
-                                          data[index].backdropPath.toString(),
-                                      originalTitle: data[index].originalTitle,
-                                      nameMovie: data[index].name,
-                                      releaseDate: data[index].releaseDate,
-                                      firstRelease: data[index].firstAirDate,
-                                      voteAverage: data[index].voteAverage!,
-                                      overview: data[index].overview,
+                                      id: data[index].id,
                                     ),
                                   ),
                                 );

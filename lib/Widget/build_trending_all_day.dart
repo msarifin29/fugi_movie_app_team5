@@ -54,15 +54,7 @@ class BuildTrendingDay extends ConsumerWidget {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => DetailScreen(
-                                        banner:
-                                            data[index].backdropPath.toString(),
-                                        originalTitle:
-                                            data[index].originalTitle,
-                                        nameMovie: data[index].name,
-                                        releaseDate: data[index].releaseDate,
-                                        firstRelease: data[index].firstAirDate,
-                                        voteAverage: data[index].voteAverage!,
-                                        overview: data[index].overview,
+                                        id: data[index].id as int,
                                       ),
                                     ),
                                   );
@@ -85,11 +77,11 @@ class BuildTrendingDay extends ConsumerWidget {
                                 right: 15,
                                 child: Container(
                                   height: 30,
-                                  width: 50,
+                                  width: 60,
                                   decoration: BoxDecoration(
                                     color:
                                         const Color.fromARGB(69, 255, 255, 255),
-                                    borderRadius: BorderRadius.circular(15),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Center(
                                     child: Row(
