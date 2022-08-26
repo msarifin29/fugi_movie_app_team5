@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:fugi_movie_app_team5/Model/result/result.dart';
 import 'package:fugi_movie_app_team5/Model/result/search_result.dart';
 
 class SearchMovieService {

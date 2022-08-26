@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Controller/riverpod/trending_movie_this_week.dart';
 import '../Model/result/result.dart';
+import '../View/homeScreen/detail_screen.dart';
 
 class BuildTrendingThisWeek extends ConsumerWidget {
   const BuildTrendingThisWeek({
@@ -11,7 +12,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dataThisWeek = ref.watch(trendingThisWeekController);
+    final dataThisWeek = ref.watch(trendingThisWeekFuture);
     return dataThisWeek.when(
       data: (dataThisWeek) {
         List<Result> data = dataThisWeek.map((e) => e).toList();
@@ -37,7 +38,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                 ),
               ),
               SizedBox(
-                height: 290,
+                height: MediaQuery.of(context).size.height * 0.35,
                 width: double.infinity,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -45,10 +46,6 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: data.length,
                   itemBuilder: (context, index) {
-                    // Release Date
-                    var date = data[index].releaseDate;
-                    // First Air Date
-                    var firstDate = data[index].firstAirDate;
                     // Original Title
                     var title = data[index].originalTitle;
                     return Column(
@@ -56,7 +53,16 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                         Stack(
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                      id: data[index].id,
+                                    ),
+                                  ),
+                                );
+                              },
                               child: Container(
                                 margin: const EdgeInsets.all(10),
                                 height: 220,
@@ -121,11 +127,6 @@ class BuildTrendingThisWeek extends ConsumerWidget {
                   },
                 ),
               ),
-              // Text(
-              //   DateFormat.yMMMd()
-              //       .format(date = date ?? firstDate!),
-              //   style: const TextStyle(color: Colors.red),
-              // ),
             ],
           ),
         );
@@ -135,9 +136,7 @@ class BuildTrendingThisWeek extends ConsumerWidget {
           err.toString(),
         ),
       ),
-      loading: () => const Center(
-        child: CircularProgressIndicator(),
-      ),
+      loading: () => const Center(child: CircularProgressIndicator()),
     );
   }
 }
