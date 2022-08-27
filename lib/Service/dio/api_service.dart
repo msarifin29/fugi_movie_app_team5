@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:fugi_movie_app_team5/Model/result/result.dart';
 
-class TrendingService {
+import '../../Model/detail_movie/detail_movie.dart';
+
+class ApiService {
   // Url from the movie trending all day
   final baseUrl = 'https://api.themoviedb.org/3';
   // Apikey
@@ -34,5 +36,13 @@ class TrendingService {
     } // Response decode as List<Map<String, dynamic>>
     final List result = jsonDecode(response.toString())['results'];
     return result.map(((e) => Result.fromJson(e))).toList();
+  }
+
+  Future<DetailMovie> getDetailMovie(int id) async {
+    final response = await Dio().get('$baseUrl/movie/$id?api_key=$apiKey');
+
+    var data = jsonDecode(response.toString()) as Map<String, dynamic>;
+
+    return DetailMovie.fromJson(data);
   }
 }

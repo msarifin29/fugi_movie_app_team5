@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fugi_movie_app_team5/View/homeScreen/detail_screen.dart';
 
 import '../Controller/riverpod/trending_all_day_riverpod.dart';
+import '../View/trendingScreen/detail_screen.dart';
 
 class BuildTrendingDay extends ConsumerWidget {
   const BuildTrendingDay({Key? key}) : super(key: key);

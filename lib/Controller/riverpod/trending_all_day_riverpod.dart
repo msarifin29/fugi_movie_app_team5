@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../Model/result/result.dart';
-import '../../Service/dio/trending_service.dart';
+import '../../Service/dio/api_service.dart';
 
 // final trendingAllDay =
 //     Provider<TrendingAllDayService>((ref) => TrendingAllDayService());
@@ -10,7 +10,7 @@ import '../../Service/dio/trending_service.dart';
 //   return ref.watch(trendingAllDay).getTrending();
 // });
 
-final trendingData = Provider((_) => TrendingService());
+final trendingData = Provider((_) => ApiService());
 
 final trendingDayProvider =
     StateNotifierProvider<TrendingDayNotifier, AsyncValue<List<Result>>>(((
@@ -25,7 +25,7 @@ class TrendingDayNotifier extends StateNotifier<AsyncValue<List<Result>>> {
       : super(const AsyncValue.data([])) {
     getTrendingDayNotifier();
   }
-  final TrendingService? _trendingService;
+  final ApiService? _trendingService;
 
   Future<void> getTrendingDayNotifier() async {
     final dataTrending = await _trendingService!.getTrendingDay();

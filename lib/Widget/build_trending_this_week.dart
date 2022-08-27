@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Controller/riverpod/trending_movie_this_week.dart';
 import '../Model/result/result.dart';
-import '../View/homeScreen/detail_screen.dart';
+import '../View/trendingScreen/detail_screen.dart';
 
 class BuildTrendingThisWeek extends ConsumerWidget {
   const BuildTrendingThisWeek({

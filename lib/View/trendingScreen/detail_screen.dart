@@ -8,29 +8,39 @@ import 'package:intl/intl.dart';
 class DetailScreen extends ConsumerWidget {
   const DetailScreen({Key? key, required this.id}) : super(key: key);
 
-  final int id;
+  final int? id;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dataDetail = ref.watch(detailFuture(id));
+    final dataDetail = ref.watch(detailFuture(id!));
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         body: dataDetail.when(
             data: (data) {
+              print(data?.id);
               var banner =
-                  'https://image.tmdb.org/t/p/w500${data.backdropPath}';
+                  'https://image.tmdb.org/t/p/w500${data!.backdropPath}';
               return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 250,
-                      child: Image.network(
-                        banner,
-                        fit: BoxFit.cover,
+                    if (data.backdropPath!.isEmpty)
+                      SizedBox(
+                        height: 250,
+                        child: Image.asset(
+                          'assets/image/movie',
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    else
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 250,
+                        child: Image.network(
+                          banner,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
                     Container(
                       margin: const EdgeInsets.only(top: 15, left: 10),
                       child: Column(
