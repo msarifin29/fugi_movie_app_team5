@@ -13,7 +13,8 @@ class ApiService {
 
   Future<List<Result>> getTrendingDay() async {
     final dio = Dio();
-    final response = await dio.get('$baseUrl/trending/all/day?api_key=$apiKey');
+    final response =
+        await dio.get('$baseUrl/trending/movie/day?api_key=$apiKey');
     if (response.statusCode != 200) {
       // ignore: avoid_print
       print('Request failed with status: ${response.statusCode}.');
@@ -27,7 +28,7 @@ class ApiService {
   Future<List<Result>> getTrendingWeek() async {
     final dio = Dio();
     final response =
-        await dio.get('$baseUrl/trending/all/week?api_key=$apiKey');
+        await dio.get('$baseUrl/trending/movie/week?api_key=$apiKey');
     if (response.statusCode != 200) {
       // ignore: avoid_print
       print('Request failed with status: ${response.statusCode}.');

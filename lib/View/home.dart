@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screen = [
     const TrendingMovieScreen(),
     DiscoverScreen(),
+    Container(alignment: Alignment.center, child: const Text('account'))
   ];
 
   // ignore: prefer_final_fields, unused_field
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-          // BottomNavigationBarItem(icon: Icon(Icons.person), label: 'account'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'account'),
         ],
       ),
     );
