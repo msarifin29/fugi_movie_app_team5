@@ -40,6 +40,11 @@ class MyApp extends StatelessWidget {
                 fontSize: 16,
                 wordSpacing: 2,
                 fontWeight: FontWeight.bold),
+            bodyMedium: TextStyle(
+              color: Color(0xffffffff),
+              fontFamily: 'Lato-Regular',
+              fontSize: 14,
+            ),
           ),
         ),
         home: DiscoverScreen());

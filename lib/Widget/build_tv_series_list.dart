@@ -42,7 +42,6 @@ class BuildTvSeriesList extends ConsumerWidget {
                 ),
                 Text(
                   "${data[index].originalName} (${DateFormat('yyyy').format(data[index].firstAirDate)})",
-                  style: const TextStyle(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   textAlign: TextAlign.center,

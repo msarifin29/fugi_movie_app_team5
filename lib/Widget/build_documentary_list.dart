@@ -42,7 +42,6 @@ class BuildDocumentaryList extends ConsumerWidget {
                 ),
                 Text(
                   "${data[index].originalTitle} (${DateFormat('yyyy').format(data[index].releaseDate)})",
-                  style: const TextStyle(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   textAlign: TextAlign.center,
