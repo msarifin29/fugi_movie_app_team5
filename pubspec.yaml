@@ -40,6 +40,8 @@ dependencies:
   dio: ^4.0.6
   flutter_riverpod: ^1.0.4
   intl: ^0.17.0
+  carousel_slider: ^4.1.1
+  percent_indicator: ^4.0.1
 
 dev_dependencies:
   flutter_test:
