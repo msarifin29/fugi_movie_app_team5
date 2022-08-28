@@ -46,4 +46,17 @@ class ApiService {
 
     return DetailMovie.fromJson(data);
   }
+
+  Future<List<Result>> getUpComing() async {
+    final dio = Dio();
+    final response = await dio.get('$baseUrl/movie/upcoming?api_key=$apiKey');
+    if (response.statusCode != 200) {
+      // ignore: avoid_print
+      print('Request failed with status: ${response.statusCode}.');
+      // return;
+      throw ("Status Error");
+    } // Response decode as List<Map<String, dynamic>>
+    final List result = jsonDecode(response.toString())['results'];
+    return result.map(((e) => Result.fromJson(e))).toList();
+  }
 }

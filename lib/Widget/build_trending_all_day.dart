@@ -26,6 +26,7 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
               builder: (context) {
                 return CarouselSlider(
                   items: data.map((item) {
+                    var tittle = item.name;
                     var release = item.releaseDate;
                     return Stack(
                       children: [
@@ -41,8 +42,8 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                             );
                           },
                           child: SizedBox(
-                            height: 320,
-                            width: 220,
+                            height: 300,
+                            width: 200,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.network(
@@ -53,15 +54,15 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                           ),
                         ),
                         Positioned(
-                          top: 310,
-                          left: 20,
+                          top: 280,
+                          left: 15,
                           child: CircularPercentIndicator(
-                            radius: 25.0,
-                            lineWidth: 4.0,
+                            radius: 22.0,
+                            lineWidth: 3.0,
                             animation: true,
                             percent: 0.7,
                             center: Padding(
-                              padding: const EdgeInsets.all(6.0),
+                              padding: const EdgeInsets.all(5.0),
                               child: Column(
                                 children: [
                                   const Icon(
@@ -70,10 +71,13 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                                     size: 16,
                                   ),
                                   Text(
-                                    '${item.voteAverage!.toStringAsFixed(1)} %',
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    '${item.voteAverage!.toStringAsFixed(1)}%',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -84,16 +88,32 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                         ),
                         Positioned(
                           top: 335,
-                          left: 100,
-                          child: SizedBox(
-                            width: 120,
-                            child: Text(
-                              DateFormat.yMMMd().format(
-                                  release = release ?? item.firstAirDate!),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(letterSpacing: 1, wordSpacing: 3),
+                          child: Container(
+                            padding: const EdgeInsets.only(left: 15),
+                            width: 180,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tittle = tittle ?? item.originalTitle!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .copyWith(wordSpacing: 3),
+                                ),
+                                Text(
+                                  DateFormat.yMMMd().format(
+                                      release = release ?? item.firstAirDate!),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .copyWith(
+                                          color: Colors.grey,
+                                          fontSize: 13,
+                                          letterSpacing: 1,
+                                          wordSpacing: 3),
+                                ),
+                              ],
                             ),
                           ),
                         )
@@ -101,8 +121,9 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                     );
                   }).toList(),
                   options: CarouselOptions(
-                    viewportFraction: 0.6,
-                    aspectRatio: 9 / 16,
+                    height: 400,
+                    viewportFraction: 0.65,
+                    aspectRatio: 9 / 18,
                     enlargeCenterPage: true,
                   ),
                 );

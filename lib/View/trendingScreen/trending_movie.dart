@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team5/Widget/build_upcoming.dart';
 import '../../Widget/build_trending_all_day.dart';
-import '../../Widget/build_trending_this_week.dart';
 
 class TrendingMovieScreen extends StatefulWidget {
   const TrendingMovieScreen({
@@ -29,12 +29,10 @@ class _TrendingMovieScreenState extends State<TrendingMovieScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 220,
-              ),
+              const BuildUpComing(),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 20,
+                  top: 10,
                   left: 20,
                   bottom: 20,
                 ),
@@ -44,7 +42,7 @@ class _TrendingMovieScreenState extends State<TrendingMovieScreen> {
                     style: Theme.of(context).textTheme.titleLarge,
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Day',
+                        text: 'Today',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],
