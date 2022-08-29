@@ -56,35 +56,36 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
   Builder loadingIndicator() {
     return Builder(
       builder: (context) {
+        final Color color1 =
+            const Color.fromARGB(255, 245, 245, 245).withOpacity(0.55);
+        const Color color2 = Color.fromARGB(255, 224, 224, 224);
         // ignore: no_leading_underscores_for_local_identifiers
         const bool _enabled = true;
-        List<Color> color = [
-          const Color.fromARGB(220, 245, 245, 245),
-          const Color.fromARGB(255, 245, 245, 245),
-        ];
+        List<Color> colors = [color1, color2];
         return Shimmer.fromColors(
-            baseColor: const Color.fromARGB(220, 245, 245, 245),
-            highlightColor: const Color.fromARGB(255, 245, 245, 245),
-            enabled: _enabled,
-            child: CarouselSlider(
-              items: color.map((item) {
-                return SizedBox(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        color: const Color.fromARGB(255, 245, 245, 245),
-                        height: 300,
-                        width: 200,
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Column(
+          baseColor: color1,
+          highlightColor: color2,
+          enabled: _enabled,
+          child: CarouselSlider(
+            items: colors.map((item) {
+              return SizedBox(
+                child: Stack(
+                  children: [
+                    Container(
+                      color: color1,
+                      height: 300,
+                      width: 200,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Positioned(
+                      top: 330,
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            color: const Color.fromARGB(255, 245, 245, 245),
+                            color: color1,
                             height: 12,
                             width: 100,
                           ),
@@ -92,23 +93,25 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                             height: 5,
                           ),
                           Container(
-                            color: const Color.fromARGB(255, 245, 245, 245),
+                            color: color1,
                             height: 12,
                             width: 120,
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                height: 400,
-                viewportFraction: 0.65,
-                aspectRatio: 9 / 18,
-                enlargeCenterPage: true,
-              ),
-            ));
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+            options: CarouselOptions(
+              height: 400,
+              viewportFraction: 0.65,
+              aspectRatio: 9 / 18,
+              enlargeCenterPage: true,
+            ),
+          ),
+        );
       },
     );
   }

@@ -52,13 +52,16 @@ class _BuildUpComingState extends State<BuildUpComing> {
   }
 
   Container loadingIndicator() {
+    final Color color1 =
+        const Color.fromARGB(255, 245, 245, 245).withOpacity(0.55);
+    const Color color2 = Color.fromARGB(255, 224, 224, 224);
     return Container(
       width: 370,
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       height: 200,
       child: Shimmer.fromColors(
-        baseColor: const Color.fromARGB(220, 245, 245, 245),
-        highlightColor: const Color.fromARGB(255, 245, 245, 245),
+        baseColor: color1,
+        highlightColor: color2,
         enabled: _enabled,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -66,7 +69,7 @@ class _BuildUpComingState extends State<BuildUpComing> {
             scrollDirection: Axis.horizontal,
             itemCount: 5,
             itemBuilder: (context, index) => Container(
-              color: const Color.fromARGB(255, 245, 245, 245),
+              color: color1,
               height: 180,
               width: 350,
             ),
