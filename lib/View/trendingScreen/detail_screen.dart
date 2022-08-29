@@ -6,7 +6,10 @@ import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
 class DetailScreen extends ConsumerWidget {
-  const DetailScreen({Key? key, required this.id}) : super(key: key);
+  const DetailScreen({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
 
   final int? id;
 
@@ -17,7 +20,6 @@ class DetailScreen extends ConsumerWidget {
         backgroundColor: Theme.of(context).backgroundColor,
         body: dataDetail.when(
             data: (data) {
-              print(data?.id);
               var banner =
                   'https://image.tmdb.org/t/p/w500${data!.backdropPath}';
               return SingleChildScrollView(

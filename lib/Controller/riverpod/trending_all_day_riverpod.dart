@@ -12,26 +12,30 @@ import '../../Service/dio/api_service.dart';
 
 final trendingData = Provider((_) => ApiService());
 
-final trendingDayProvider =
-    StateNotifierProvider<TrendingDayNotifier, AsyncValue<List<Result>>>(((
-  ref,
-) {
-  final dataService = ref.read(trendingData);
-  return TrendingDayNotifier(dataService);
-}));
+final trendingDayProvider = FutureProvider<List<Result>>((ref) {
+  return ref.watch(trendingData).getTrendingDay();
+});
 
-class TrendingDayNotifier extends StateNotifier<AsyncValue<List<Result>>> {
-  TrendingDayNotifier(this._trendingService, [AsyncValue<List<Result>>? state])
-      : super(const AsyncValue.data([])) {
-    getTrendingDayNotifier();
-  }
-  final ApiService? _trendingService;
+// final trendingDayProvider =
+//     StateNotifierProvider<TrendingDayNotifier, AsyncValue<List<Result>>>(((
+//   ref,
+// ) {
+//   final dataService = ref.read(trendingData);
+//   return TrendingDayNotifier(dataService);
+// }));
 
-  Future<void> getTrendingDayNotifier() async {
-    final dataTrending = await _trendingService!.getTrendingDay();
-    state = const AsyncValue.loading();
-    if (mounted) {
-      state = (AsyncValue.data([...dataTrending]));
-    }
-  }
-}
+// class TrendingDayNotifier extends StateNotifier<AsyncValue<List<Result>>> {
+//   TrendingDayNotifier(this._trendingService, [AsyncValue<List<Result>>? state])
+//       : super(const AsyncValue.data([])) {
+//     getTrendingDayNotifier();
+//   }
+//   final ApiService? _trendingService;
+
+//   Future<void> getTrendingDayNotifier() async {
+//     final dataTrending = await _trendingService!.getTrendingDay();
+//     state = const AsyncValue.loading();
+//     if (mounted) {
+//       state = (AsyncValue.data([...dataTrending]));
+//     }
+//   }
+// }
