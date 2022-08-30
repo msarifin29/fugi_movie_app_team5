@@ -46,6 +46,12 @@ https://www.linkedin.com/in/joshuastmrng02/
 
 Ardi
 
+## How to run and build
+
+- build : flutter build apk
+- run : flutter run
+
+
 
 
 
