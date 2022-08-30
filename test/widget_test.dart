@@ -14,11 +14,11 @@ import 'package:fugi_movie_app_team5/Service/dio/search_movie.dart';
 import 'package:fugi_movie_app_team5/main.dart';
 
 void main() async {
-  final List<SearchResult> results =
-      await SearchMovieService.searchMovie(keyword: 'jedi');
-  for (var movie in results) {
-    print(movie.title);
-  }
+  // final List<SearchResult> results =
+  //     await SearchMovieService.searchMovie(keyword: 'jedi');
+  // for (var movie in results) {
+  //   print(movie.title);
+  // }
   // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
   // Build our app and trigger a frame.
   // await tester.pumpWidget(const MyApp());
