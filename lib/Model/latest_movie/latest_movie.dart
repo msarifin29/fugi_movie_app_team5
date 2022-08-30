@@ -30,7 +30,7 @@ abstract class LatestMovie with _$LatestMovie {
     @JsonKey(name: 'original_language') String? originalLanguage,
     @JsonKey(name: 'original_title') String? originalTitle,
     required String overview,
-    required int? popularity,
+    required double? popularity,
     @JsonKey(name: 'poster_path') dynamic posterPath,
     @JsonKey(name: 'production_companies') List<dynamic>? productionCompanies,
     @JsonKey(name: 'production_countries') List<dynamic>? productionCountries,
@@ -42,7 +42,7 @@ abstract class LatestMovie with _$LatestMovie {
     required String tagline,
     required String title,
     required bool video,
-    @JsonKey(name: 'vote_average') int? voteAverage,
+    @JsonKey(name: 'vote_average') double? voteAverage,
     @JsonKey(name: 'vote_count') int? voteCount,
   }) = _LatestMovie;
 
