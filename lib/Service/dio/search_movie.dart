@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:fugi_movie_app_team5/Model/result/search_result.dart';
 
 class SearchMovieService {
-  static Future<List<SearchResult>> searchMovie(
+  Future<List<SearchResult>> searchMovie(
       {required String keyword, int page = 1}) async {
     // Url from the movie trending all day
     final url =
@@ -12,6 +12,7 @@ class SearchMovieService {
     final dio = Dio();
     final response = await dio.get(url);
     // Response decode as List<Map<String, dynamic>>
+    print(jsonDecode(response.toString())['results']);
     final List result = jsonDecode(response.toString())['results'];
     return result.map(((e) => SearchResult.fromJson(e))).toList();
   }

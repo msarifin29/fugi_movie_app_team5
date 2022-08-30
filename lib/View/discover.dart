@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team5/Widget/build_movies_search_list.dart';
 
 import '../Widget/build_fantasy_list.dart';
 import '../Widget/build_movies_list.dart';
@@ -10,6 +11,7 @@ enum Category {
   tvSeries,
   documentary,
   fantasy,
+  search,
 }
 
 // ignore: must_be_immutable
@@ -23,17 +25,64 @@ class DiscoverScreen extends StatefulWidget {
 }
 
 class _DiscoverScreenState extends State<DiscoverScreen> {
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         body: SafeArea(
           child: Column(
             children: [
-              Expanded(
-                child: Container(),
+              const SizedBox(height: 24),
+              Container(
+                width: size.width * 85 / 100,
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                alignment: Alignment.center,
+                child: Row(
+                  children: const [
+                    Flexible(
+                      child: Text(
+                        'Find Movie, Tv Series, and more..',
+                        style: TextStyle(fontSize: 28),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 14, bottom: 10),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 20,
+                ),
+                width: 85 * size.width / 100,
+                decoration: BoxDecoration(
+                    color: const Color(0xFF211F30),
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  controller: searchController,
+                  keyboardType: TextInputType.text,
+                  style: const TextStyle(
+                    fontSize: 16,
+                  ),
+                  decoration: const InputDecoration(
+                    isDense: true,
+                    contentPadding: EdgeInsets.only(bottom: 4),
+                    hintText: "Search Movie",
+                    hintStyle: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFF939393),
+                    ),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      widget.selectedCategory = Category.search;
+                    });
+                  },
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -193,6 +242,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   ? SizedBox(
                       height: size.height / 1.25,
                       child: const BuildFantasyList())
+                  : Container(),
+              (widget.selectedCategory == Category.search &&
+                      searchController.text.isNotEmpty)
+                  ? SizedBox(
+                      height: size.height / 1.25,
+                      child: BuildMovieSearchList(
+                        keyword: searchController.text,
+                      ))
                   : Container(),
             ],
           ),
