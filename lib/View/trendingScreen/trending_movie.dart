@@ -19,9 +19,20 @@ class _TrendingMovieScreenState extends State<TrendingMovieScreen> {
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).backgroundColor,
-        title: Text(
-          'Movie',
-          style: Theme.of(context).textTheme.headlineMedium,
+        title: RichText(
+          text: TextSpan(
+            text: 'Stream',
+            style: Theme.of(context)
+                .textTheme
+                .headlineMedium!
+                .copyWith(color: Colors.white),
+            children: <TextSpan>[
+              TextSpan(
+                text: ' Everywhere',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ],
+          ),
         ),
       ),
       body: SafeArea(
@@ -43,7 +54,10 @@ class _TrendingMovieScreenState extends State<TrendingMovieScreen> {
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Today',
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: Color(0xffff8f71)),
                       ),
                     ],
                   ),

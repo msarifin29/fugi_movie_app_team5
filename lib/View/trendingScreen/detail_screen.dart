@@ -31,8 +31,15 @@ class DetailScreen extends ConsumerWidget {
                       background: Image.network(
                         banner,
                         fit: BoxFit.cover,
+                        errorBuilder: (BuildContext context, Object object,
+                            StackTrace? stackTrace) {
+                          return Container(
+                            color: Colors.black,
+                          );
+                        },
                       ),
                     ),
+                    backgroundColor: Theme.of(context).backgroundColor,
                   ),
                   SliverList(
                     delegate: SliverChildListDelegate(
@@ -189,45 +196,49 @@ class DetailScreen extends ConsumerWidget {
                               const SizedBox(
                                 width: 50,
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    'Languages',
-                                    style:
-                                        Theme.of(context).textTheme.titleLarge,
-                                  ),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                    width:
-                                        MediaQuery.of(context).size.width / 1.8,
-                                    child: ListView.separated(
-                                      itemCount: data.spokenLanguages!.length,
-                                      scrollDirection: Axis.horizontal,
-                                      separatorBuilder: (ctx, i) =>
-                                          const SizedBox(
-                                        width: 5,
-                                      ),
-                                      itemBuilder: (ctx, i) => Center(
-                                        child: Text(
-                                          '${data.spokenLanguages![i].name.toString()},',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      'Languages',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge,
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                      width: MediaQuery.of(context).size.width /
+                                          1.8,
+                                      child: ListView.separated(
+                                        itemCount: data.spokenLanguages!.length,
+                                        scrollDirection: Axis.horizontal,
+                                        separatorBuilder: (ctx, i) =>
+                                            const SizedBox(
+                                          width: 5,
+                                        ),
+                                        itemBuilder: (ctx, i) => Center(
+                                          child: Text(
+                                            '${data.spokenLanguages![i].name.toString()},',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -318,7 +329,7 @@ class DetailScreen extends ConsumerWidget {
                                 .textTheme
                                 .bodySmall!
                                 .copyWith(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w400,
                                     wordSpacing: 1),
                             textAlign: TextAlign.justify,
                           ),

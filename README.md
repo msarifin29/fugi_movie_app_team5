@@ -1,6 +1,6 @@
 # fugi_movie_app_team5
 
-A new Flutter project.
+Team5MovieFugi - MyBioskop
 
 ## Getting Started
 
