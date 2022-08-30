@@ -36,7 +36,7 @@ mixin _$LatestMovie {
   @JsonKey(name: 'original_title')
   String? get originalTitle => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
-  int? get popularity => throw _privateConstructorUsedError;
+  double? get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   dynamic get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'production_companies')
@@ -54,7 +54,7 @@ mixin _$LatestMovie {
   String get title => throw _privateConstructorUsedError;
   bool get video => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_average')
-  int? get voteAverage => throw _privateConstructorUsedError;
+  double? get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_count')
   int? get voteCount => throw _privateConstructorUsedError;
 
@@ -81,7 +81,7 @@ abstract class $LatestMovieCopyWith<$Res> {
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'original_title') String? originalTitle,
       String overview,
-      int? popularity,
+      double? popularity,
       @JsonKey(name: 'poster_path') dynamic posterPath,
       @JsonKey(name: 'production_companies') List<dynamic>? productionCompanies,
       @JsonKey(name: 'production_countries') List<dynamic>? productionCountries,
@@ -93,7 +93,7 @@ abstract class $LatestMovieCopyWith<$Res> {
       String tagline,
       String title,
       bool video,
-      @JsonKey(name: 'vote_average') int? voteAverage,
+      @JsonKey(name: 'vote_average') double? voteAverage,
       @JsonKey(name: 'vote_count') int? voteCount});
 }
 
@@ -181,7 +181,7 @@ class _$LatestMovieCopyWithImpl<$Res> implements $LatestMovieCopyWith<$Res> {
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       posterPath: posterPath == freezed
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$LatestMovieCopyWithImpl<$Res> implements $LatestMovieCopyWith<$Res> {
       voteAverage: voteAverage == freezed
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       voteCount: voteCount == freezed
           ? _value.voteCount
           : voteCount // ignore: cast_nullable_to_non_nullable
@@ -257,7 +257,7 @@ abstract class _$$_LatestMovieCopyWith<$Res>
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'original_title') String? originalTitle,
       String overview,
-      int? popularity,
+      double? popularity,
       @JsonKey(name: 'poster_path') dynamic posterPath,
       @JsonKey(name: 'production_companies') List<dynamic>? productionCompanies,
       @JsonKey(name: 'production_countries') List<dynamic>? productionCountries,
@@ -269,7 +269,7 @@ abstract class _$$_LatestMovieCopyWith<$Res>
       String tagline,
       String title,
       bool video,
-      @JsonKey(name: 'vote_average') int? voteAverage,
+      @JsonKey(name: 'vote_average') double? voteAverage,
       @JsonKey(name: 'vote_count') int? voteCount});
 }
 
@@ -359,7 +359,7 @@ class __$$_LatestMovieCopyWithImpl<$Res> extends _$LatestMovieCopyWithImpl<$Res>
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       posterPath: posterPath == freezed
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -407,7 +407,7 @@ class __$$_LatestMovieCopyWithImpl<$Res> extends _$LatestMovieCopyWithImpl<$Res>
       voteAverage: voteAverage == freezed
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       voteCount: voteCount == freezed
           ? _value.voteCount
           : voteCount // ignore: cast_nullable_to_non_nullable
@@ -498,7 +498,7 @@ class _$_LatestMovie implements _LatestMovie {
   @override
   final String overview;
   @override
-  final int? popularity;
+  final double? popularity;
   @override
   @JsonKey(name: 'poster_path')
   final dynamic posterPath;
@@ -549,7 +549,7 @@ class _$_LatestMovie implements _LatestMovie {
   final bool video;
   @override
   @JsonKey(name: 'vote_average')
-  final int? voteAverage;
+  final double? voteAverage;
   @override
   @JsonKey(name: 'vote_count')
   final int? voteCount;
@@ -664,7 +664,7 @@ abstract class _LatestMovie implements LatestMovie {
       @JsonKey(name: 'original_title')
           final String? originalTitle,
       required final String overview,
-      required final int? popularity,
+      required final double? popularity,
       @JsonKey(name: 'poster_path')
           final dynamic posterPath,
       @JsonKey(name: 'production_companies')
@@ -682,7 +682,7 @@ abstract class _LatestMovie implements LatestMovie {
       required final String title,
       required final bool video,
       @JsonKey(name: 'vote_average')
-          final int? voteAverage,
+          final double? voteAverage,
       @JsonKey(name: 'vote_count')
           final int? voteCount}) = _$_LatestMovie;
 
@@ -717,7 +717,7 @@ abstract class _LatestMovie implements LatestMovie {
   @override
   String get overview;
   @override
-  int? get popularity;
+  double? get popularity;
   @override
   @JsonKey(name: 'poster_path')
   dynamic get posterPath;
@@ -747,7 +747,7 @@ abstract class _LatestMovie implements LatestMovie {
   bool get video;
   @override
   @JsonKey(name: 'vote_average')
-  int? get voteAverage;
+  double? get voteAverage;
   @override
   @JsonKey(name: 'vote_count')
   int? get voteCount;

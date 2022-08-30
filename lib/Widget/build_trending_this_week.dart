@@ -1,5 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 import '../Controller/riverpod/trending_movie_this_week.dart';
 import '../Model/result/result.dart';
@@ -12,123 +15,25 @@ class BuildTrendingThisWeek extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dataThisWeek = ref.watch(trendingThisWeekFuture);
-    return dataThisWeek.when(
-      data: (dataThisWeek) {
-        List<Result> data = dataThisWeek.map((e) => e).toList();
-        return Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                ),
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Trending ',
-                    style: Theme.of(context).textTheme.titleLarge,
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'This week',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ],
-                  ),
-                ),
+    final dataTrending = ref.watch(trendingThisWeekFuture);
+    return dataTrending.when(
+      data: (data) {
+        return Builder(
+          builder: (context) {
+            return CarouselSlider(
+              items: data.map((item) {
+                var tittle = item.name;
+                var release = item.releaseDate;
+                return carouselCardTrending(context, item, tittle, release);
+              }).toList(),
+              options: CarouselOptions(
+                height: 400,
+                viewportFraction: 0.65,
+                aspectRatio: 9 / 18,
+                enlargeCenterPage: true,
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.35,
-                width: double.infinity,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.only(top: 5),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    // Original Title
-                    var title = data[index].originalTitle;
-                    return Column(
-                      children: [
-                        Stack(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => DetailScreen(
-                                      id: data[index].id,
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.all(10),
-                                height: 220,
-                                width: 150,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 15,
-                              right: 15,
-                              child: Container(
-                                height: 30,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(69, 255, 255, 255),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Center(
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        'assets/icon/icon_star_filled.png',
-                                        color: const Color(0xfff3be00),
-                                        width: 25,
-                                      ),
-                                      Text(
-                                        data[index]
-                                            .voteAverage!
-                                            .toStringAsFixed(1),
-                                        style: const TextStyle(
-                                            color: Color(0xffffffff),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(left: 10),
-                          width: 150,
-                          child: Text(
-                            title = title == null
-                                ? data[index].name.toString()
-                                : title.toString(),
-                            style: Theme.of(context).textTheme.titleSmall,
-                          ),
-                        )
-                      ],
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+            );
+          },
         );
       },
       error: (err, s) => Scaffold(
@@ -136,7 +41,99 @@ class BuildTrendingThisWeek extends ConsumerWidget {
           err.toString(),
         ),
       ),
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
+}
+
+Stack carouselCardTrending(
+    BuildContext context, Result item, String? tittle, DateTime? release) {
+  return Stack(
+    children: [
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailScreen(
+                id: item.id,
+              ),
+            ),
+          );
+        },
+        child: SizedBox(
+          height: 300,
+          width: 200,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.network(
+              'https://image.tmdb.org/t/p/w500${item.posterPath}',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+      Positioned(
+        top: 280,
+        left: 15,
+        child: CircularPercentIndicator(
+          radius: 22.0,
+          lineWidth: 3.0,
+          animation: true,
+          percent: 0.7,
+          center: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: Color(0xffff8f71),
+                  size: 16,
+                ),
+                Text(
+                  '${item.voteAverage!.toStringAsFixed(1)}%',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(fontSize: 13, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          circularStrokeCap: CircularStrokeCap.round,
+          progressColor: const Color(0xffff8f71),
+        ),
+      ),
+      Positioned(
+        top: 335,
+        child: Container(
+          padding: const EdgeInsets.only(left: 15),
+          width: 180,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                tittle = tittle ?? item.originalTitle!,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(wordSpacing: 3),
+              ),
+              Text(
+                DateFormat.yMMMd()
+                    .format(release = release ?? item.firstAirDate!),
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    letterSpacing: 1,
+                    wordSpacing: 3),
+              ),
+            ],
+          ),
+        ),
+      )
+    ],
+  );
 }
