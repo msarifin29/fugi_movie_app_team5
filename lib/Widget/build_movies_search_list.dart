@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fugi_movie_app_team5/Controller/riverpod/movie_search_riverpod.dart';
 import 'package:fugi_movie_app_team5/Model/result/search_result.dart';
-import 'package:intl/intl.dart';
-
-import '../Model/movies/movies.dart';
 
 class BuildMovieSearchList extends ConsumerWidget {
   const BuildMovieSearchList({
@@ -43,7 +40,7 @@ class BuildMovieSearchList extends ConsumerWidget {
                   ),
                 ),
                 Text(
-                  "${data[index].originalTitle} (${data[index].releaseDate})",
+                  "${data[index].originalTitle} ${data[index].releaseDate!.isEmpty ? '' : '(${data[index].releaseDate!.split('-')[0]})'}",
                   style: const TextStyle(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,

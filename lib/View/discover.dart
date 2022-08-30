@@ -225,31 +225,23 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 ],
               ),
               (widget.selectedCategory == Category.movies)
-                  ? SizedBox(
-                      height: size.height / 1.25, child: const BuildMovieList())
+                  ? const Expanded(child: BuildMovieList())
                   : Container(),
               (widget.selectedCategory == Category.tvSeries)
-                  ? SizedBox(
-                      height: size.height / 1.25,
-                      child: const BuildTvSeriesList())
+                  ? const Expanded(child: BuildTvSeriesList())
                   : Container(),
               (widget.selectedCategory == Category.documentary)
-                  ? SizedBox(
-                      height: size.height / 1.25,
-                      child: const BuildDocumentaryList())
+                  ? const Expanded(child: BuildDocumentaryList())
                   : Container(),
               (widget.selectedCategory == Category.fantasy)
-                  ? SizedBox(
-                      height: size.height / 1.25,
-                      child: const BuildFantasyList())
+                  ? const Expanded(child: BuildFantasyList())
                   : Container(),
               (widget.selectedCategory == Category.search &&
                       searchController.text.isNotEmpty)
-                  ? SizedBox(
-                      height: size.height / 1.25,
+                  ? Expanded(
                       child: BuildMovieSearchList(
-                        keyword: searchController.text,
-                      ))
+                      keyword: searchController.text,
+                    ))
                   : Container(),
             ],
           ),
