@@ -95,31 +95,49 @@ class _BuildUpComingState extends State<BuildUpComing> {
           ),
         ),
         Positioned(
-          top: 120,
-          left: 15,
+          bottom: 32,
+          left: 16,
           child: Container(
-            height: 50,
-            padding: const EdgeInsets.only(left: 15, top: 5, right: 15),
+            height: 70,
+            padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: const Color.fromARGB(220, 158, 158, 158),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+                borderRadius: BorderRadius.circular(15),
+                color:
+                    const Color.fromARGB(220, 158, 158, 158).withOpacity(0.5)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  'Up Coming!',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.amber),
+                Image.asset(
+                  "assets/icon/icon_play_filled.png",
+                  width: 40,
+                  height: 40,
                 ),
-                Text(
-                  title = title ?? item.name!,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                SizedBox(
+                  width: 8,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Up Coming!',
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xffBCBCBC)),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Text(
+                      title = title ?? item.name!,
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
                 ),
               ],
             ),

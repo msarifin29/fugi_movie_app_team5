@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fugi_movie_app_team5">
    <application
-        android:label="fugi_movie_app_team5"
+        android:label="MyBioskop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

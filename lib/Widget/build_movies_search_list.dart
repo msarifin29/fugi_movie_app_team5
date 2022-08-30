@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fugi_movie_app_team5/Controller/riverpod/movie_search_riverpod.dart';
 import 'package:fugi_movie_app_team5/Model/result/search_result.dart';
+import 'package:fugi_movie_app_team5/View/trendingScreen/detail_screen.dart';
 
 class BuildMovieSearchList extends ConsumerWidget {
   const BuildMovieSearchList({
@@ -22,31 +23,43 @@ class BuildMovieSearchList extends ConsumerWidget {
             crossAxisCount: 2,
           ),
           itemBuilder: (context, index) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: 154,
-                  height: (index % 3 == 0 || index == 0) ? 184 : 160,
-                  margin: const EdgeInsets.only(bottom: 5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                          'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
-                        ),
-                        fit: BoxFit.cover),
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                      id: data[index].id,
+                    ),
                   ),
-                ),
-                Text(
-                  "${data[index].originalTitle} ${data[index].releaseDate!.isEmpty ? '' : '(${data[index].releaseDate!.split('-')[0]})'}",
-                  style: const TextStyle(color: Colors.white),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                );
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    width: 154,
+                    height: (index % 3 == 0 || index == 0) ? 184 : 160,
+                    margin: const EdgeInsets.only(bottom: 5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            'https://image.tmdb.org/t/p/w500${data[index].posterPath}',
+                          ),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
+                  Text(
+                    "${data[index].originalTitle} ${data[index].releaseDate!.isEmpty ? '' : '(${data[index].releaseDate!.split('-')[0]})'}",
+                    style: const TextStyle(color: Colors.white),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             );
           },
         );

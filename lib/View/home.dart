@@ -15,7 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screen = [
     const TrendingMovieScreen(),
     DiscoverScreen(),
-    Container(alignment: Alignment.center, child: const Text('account'))
+    // Container(alignment: Alignment.center, child: const Text('account'))
+    Container()
   ];
 
   // ignore: prefer_final_fields, unused_field
@@ -33,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         currentIndex: _selectIndex,
         unselectedItemColor: Colors.grey,
         selectedItemColor: const Color(0xffff8f71),
@@ -41,14 +44,51 @@ class _HomeScreenState extends State<HomeScreen> {
         unselectedFontSize: 18,
         backgroundColor: Theme.of(context).backgroundColor,
         onTap: (int index) {
-          setState(() {
-            _selectIndex = index;
-          });
+          if (index != 2)
+            setState(() {
+              _selectIndex = index;
+            });
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'account'),
+        items: [
+          BottomNavigationBarItem(
+            activeIcon: Image.asset(
+              "assets/icon/icon_home_filled.png",
+              width: 40,
+              height: 40,
+            ),
+            icon: Image.asset(
+              "assets/icon/icon_home_outlined.png",
+              width: 40,
+              height: 40,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            activeIcon: Image.asset(
+              "assets/icon/icon_play_filled.png",
+              width: 40,
+              height: 40,
+            ),
+            icon: Image.asset(
+              "assets/icon/icon_play_outlined.png",
+              width: 40,
+              height: 40,
+            ),
+            label: '',
+          ),
+          // BottomNavigationBarItem(
+          //   activeIcon: Image.asset(
+          //     "assets/icon/icon_account_outlined.png",
+          //     width: 40,
+          //     height: 40,
+          //   ),
+          //   icon: Image.asset(
+          //     "assets/icon/icon_account_outlined.png",
+          //     width: 40,
+          //     height: 40,
+          //   ),
+          //   label: '',
+          // ),
         ],
       ),
     );
