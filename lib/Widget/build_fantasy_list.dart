@@ -25,11 +25,11 @@ class BuildFantasyList extends ConsumerWidget {
           itemBuilder: (context, index) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: 154,
-                  height: (index % 3 == 0 || index == 0) ? 184 : 160,
+                  width: 120,
+                  height: 180,
                   margin: const EdgeInsets.only(bottom: 5),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -42,7 +42,6 @@ class BuildFantasyList extends ConsumerWidget {
                 ),
                 Text(
                   "${data[index].originalTitle} (${DateFormat('yyyy').format(data[index].releaseDate)})",
-                  style: const TextStyle(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   textAlign: TextAlign.center,
