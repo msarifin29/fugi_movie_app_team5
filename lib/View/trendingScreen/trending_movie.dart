@@ -1,13 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:fugi_movie_app_team5/View/trendingScreen/detail_screen.dart';
 import 'package:fugi_movie_app_team5/Widget/build_upcoming.dart';
-import 'package:intl/intl.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-import 'package:shimmer/shimmer.dart';
-import '../../Model/result/result.dart';
 import '../../Widget/build_trending_all_day.dart';
 
 class TrendingMovieScreen extends StatefulWidget {

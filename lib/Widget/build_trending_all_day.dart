@@ -161,7 +161,7 @@ class _BuildTrendingDaysState extends State<BuildTrendingDays> {
                     size: 16,
                   ),
                   Text(
-                    '${item.voteAverage!.toStringAsFixed(1)}%',
+                    item.voteAverage!.toStringAsFixed(1),
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall!
