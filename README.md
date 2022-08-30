@@ -2,7 +2,9 @@
 
 Team5MovieFugi - MyBioskop
 
-## Getting Started
+## Description
+
+Aplikasi ini menggunakan arsitektur MVC+S Design Pattern dan riverpod untuk state management.
 
 ## Architecture
 This Project Architecture is using MVC+S Design Pattern
