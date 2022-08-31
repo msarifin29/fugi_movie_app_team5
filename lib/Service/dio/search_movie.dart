@@ -12,7 +12,7 @@ class SearchMovieService {
     final dio = Dio();
     final response = await dio.get(url);
     // Response decode as List<Map<String, dynamic>>
-    print(jsonDecode(response.toString())['results']);
+    // print(jsonDecode(response.toString())['results']);
     final List result = jsonDecode(response.toString())['results'];
     return result.map(((e) => SearchResult.fromJson(e))).toList();
   }

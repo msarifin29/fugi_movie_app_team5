@@ -57,7 +57,7 @@ class _TrendingMovieScreenState extends State<TrendingMovieScreen> {
                         style: Theme.of(context)
                             .textTheme
                             .titleLarge!
-                            .copyWith(color: Color(0xffff8f71)),
+                            .copyWith(color: const Color(0xffff8f71)),
                       ),
                     ],
                   ),

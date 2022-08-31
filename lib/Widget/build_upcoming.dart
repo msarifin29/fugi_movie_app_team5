@@ -99,7 +99,7 @@ class _BuildUpComingState extends State<BuildUpComing> {
           left: 16,
           child: Container(
             height: 70,
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color:
@@ -113,7 +113,7 @@ class _BuildUpComingState extends State<BuildUpComing> {
                   width: 40,
                   height: 40,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 8,
                 ),
                 Column(
@@ -125,9 +125,9 @@ class _BuildUpComingState extends State<BuildUpComing> {
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xffBCBCBC)),
+                          color: const Color(0xffBCBCBC)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2,
                     ),
                     Text(

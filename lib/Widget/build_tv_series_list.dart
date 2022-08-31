@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../Controller/riverpod/tv_series_riverpod.dart';
 import '../Model/tv_series/tv_series.dart';
-import '../View/trendingScreen/detail_screen.dart';
+import '../View/trendingScreen/detail_tv_screen.dart';
 
 class BuildTvSeriesList extends ConsumerWidget {
   const BuildTvSeriesList({
@@ -29,7 +29,7 @@ class BuildTvSeriesList extends ConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailScreen(
+                    builder: (context) => DetailTvScreen(
                       id: data[index].id,
                     ),
                   ),
