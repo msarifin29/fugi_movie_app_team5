@@ -46,6 +46,10 @@ https://www.linkedin.com/in/joshuastmrng02/
 
 Ardi
 
+## Panitia
+
+Saiful bahri, Fatih
+
 ## How to run and build
 
 - build : flutter build apk
