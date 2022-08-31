@@ -5,14 +5,6 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fugi_movie_app_team5/Model/result/result.dart';
-import 'package:fugi_movie_app_team5/Model/result/search_result.dart';
-import 'package:fugi_movie_app_team5/Service/dio/search_movie.dart';
-
-import 'package:fugi_movie_app_team5/main.dart';
-
 void main() async {
   // final List<SearchResult> results =
   //     await SearchMovieService.searchMovie(keyword: 'jedi');

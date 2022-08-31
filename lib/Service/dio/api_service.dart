@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:fugi_movie_app_team5/Model/detail_tv/detail_tv.dart';
 import 'package:fugi_movie_app_team5/Model/latest_movie/latest_movie.dart';
 import 'package:fugi_movie_app_team5/Model/result/result.dart';
 
@@ -48,6 +49,14 @@ class ApiService {
     return DetailMovie.fromJson(data);
   }
 
+  Future<DetailTv> getDetailTv(int id) async {
+    final response = await Dio().get('$baseUrl/tv/$id?api_key=$apiKey');
+
+    var data = jsonDecode(response.toString()) as Map<String, dynamic>;
+
+    return DetailTv.fromJson(data);
+  }
+
   Future<List<Result>> getUpComing() async {
     final dio = Dio();
     final response = await dio.get('$baseUrl/movie/upcoming?api_key=$apiKey');
@@ -66,7 +75,6 @@ class ApiService {
     final response = await dio.get('$baseUrl/movie/latest?api_key=$apiKey');
 
     var data = jsonDecode(response.toString()) as Map<String, dynamic>;
-    print(data);
     return LatestMovie.fromJson(data);
   }
 }

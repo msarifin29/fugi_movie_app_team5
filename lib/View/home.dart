@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).backgroundColor,
         onTap: (int index) {
           if (index != 2)
+            // ignore: curly_braces_in_flow_control_structures
             setState(() {
               _selectIndex = index;
             });
