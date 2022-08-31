@@ -2,6 +2,12 @@
 
 Team5MovieFugi - MyBioskop
 
+Flutter version 3.0.3
+
+State mangement
+
+https://riverpod.dev/
+
 ## Description
 
 Minibootcamp ini diselenggarakan oleh FUGI (Flutter User Group Indonesia),
@@ -9,8 +15,6 @@ komunitas pemrograman yang membahas tentang flutter dan menggunakan bahasa pemro
 grup ini terbuka untuk siapa saja yang ingin berbagi dan bertanya seputar flutter 
 
 https://chat.whatsapp.com/DOmmRMP50Oc4eDd5eI7nav
-
-Aplikasi ini menggunakan arsitektur MVC+S Design Pattern dan riverpod untuk state management, dengan version flutter 3.0.3
 
 ## Architecture
 This Project Architecture is using MVC+S Design Pattern
