@@ -1,78 +1,65 @@
 # fugi_movie_app_team5
 
-Team5MovieFugi - MyBioskop
+**MyBioskop**
 
-Flutter version 3.0.3
-
-State mangement
-
-https://riverpod.dev/
+[Flutter version 3.0.3](https://flutter.dev/)
 
 ## Description
 
-Minibootcamp ini diselenggarakan oleh FUGI (Flutter User Group Indonesia),
+<sub>Minibootcamp ini diselenggarakan oleh FUGI (Flutter User Group Indonesia),
 komunitas pemrograman yang membahas tentang flutter dan menggunakan bahasa pemrograman dart,
-grup ini terbuka untuk siapa saja yang ingin berbagi dan bertanya seputar flutter 
+grup ini terbuka untuk siapa saja yang ingin berbagi dan bertanya seputar flutter<sub>
 
-https://chat.whatsapp.com/DOmmRMP50Oc4eDd5eI7nav
+- [**FUGI** *(Flutter User Group Indonesia)*](https://chat.whatsapp.com/DOmmRMP50Oc4eDd5eI7nav)
 
 ## Architecture
 This Project Architecture is using MVC+S Design Pattern
 
+## Packages
+  
+| dependencies | dev_dependencies |
+| ---  | ---  | 
+| [riverpod](https://pub.dev/packages/riverpod) |  [ flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) | 
+| [flutter_riverpod](https://pub.dev/packages/flutter_riverpod) | [freezed](https://pub.dev/packages/freezed) | 
+| [freezed_annotation](https://pub.dev/packages/freezed_annotation) |   [json_serializable](https://pub.dev/packages/json_serializable) | 
+| [json_annotation](https://pub.dev/packages/json_annotation) | [ build_runner](https://pub.dev/packages/build_runner) | 
+| [dio](https://pub.dev/packages/dio) |
+| [carousel_slider:](https://pub.dev/packages/carousel_slider) | 
+| [percent_indicator](https://pub.dev/packages/percent_indicator) | 
+| [shimmer](https://pub.dev/packages/shimmer) | 
+
+  
 ## Developer
 
-- Frengky G
-
-https://www.linkedin.com/in/frengky-gunawan/
-
-https://github.com/FrengkyG
-
-- M. Syamsul Arifin (koordinator)
-
-https://github.com/msarifin29
-
-http://www.linkedin.com/in/muhammad-syamsul-arifin-04624b237
+| Nama | Linked in | Github |
+|    :---:   |     :---:      |   :---: |
+| **Frengky G** | [frengky-gunawan](https://www.linkedin.com/in/frengky-gunawan/) | [FrengkyG](https://github.com/FrengkyG) |
+| **M. Syamsul Arifin** *(koordinator)* | [muhammad Syamsul Arifin](https://www.linkedin.com/in/frengky-gunawan/) | [msarifin29](https://github.com/msarifin29) |
+|  **Andres Sumihes** *(koordinator)* | [andres-sumihe](https://www.linkedin.com/in/andres-sumihe/) | [andres-sumihe](https://github.com/andres-sumihe) |
+| **Fanes-setiawan** | [fanes-setiawan](https://www.linkedin.com/in/fanes-setiawan-9b89b5249/) | [fanes-setiawan](https://github.com/fanes-setiawan) |
+| **Joshua** | [joshuastmrng02](https://www.linkedin.com/in/joshuastmrng02/) | [joshflutterwork](https://github.com/joshflutterwork) |
 
 
-- Andres Sumihes (koordinator)
-
-https://github.com/andres-sumihe
-
-https://www.linkedin.com/in/andres-sumihe/
-
-- Fanes S
-
-https://www.linkedin.com/in/fanes-setiawan-9b89b5249/
-
-https://github.com/fanes-setiawan
-
-- Joshua
-
-https://github.com/joshflutterwork
-
-https://www.linkedin.com/in/joshuastmrng02/
 
 ## Mentor
 
-Ardi
+ | Ardi |
+ | ---      | 
 
 ## Panitia
 
-Saiful bahri, Fatih
+| Saiful bahri | Fatih |
+| ---      | ---       |
 
-## How to run and build
+## How to run
 
-- build : flutter build apk
-- run : flutter run
-
-
-
+  
+`flutter run `
 
 
 ## Images
 
 ![alt text](https://github.com/msarifin29/fugi_movie_app_team5/blob/main/WhatsApp%20Image%202022-08-30%20at%2011.13.11%20PM.jpeg)
-
 ![alt text](https://github.com/msarifin29/fugi_movie_app_team5/blob/main/WhatsApp%20Image%202022-08-30%20at%2011.13.12%20PM.jpeg)
 
 
