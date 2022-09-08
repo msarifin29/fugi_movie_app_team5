@@ -43,12 +43,12 @@ This Project Architecture is using MVC+S Design Pattern
 
 ## Mentor
 
- | Ardi |
+ | [Ardiansyah](https://github.com/ardi85) |
  | ---      | 
 
 ## Panitia
 
-| Saiful bahri | Fatih |
+| [Saiful bahri](https://github.com/bahrie127) | Fatih |
 | ---      | ---       |
 
 ## How to run
